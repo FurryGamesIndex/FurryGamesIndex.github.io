@@ -1,0 +1,15 @@
+# FGI BUILD INFO START
+base revision: dce69d265f7ad934efcb69c421dbaaa6ca38f673
+options: --next --images-candidate-webp --no-sitemap --extra-ui extraui --with-rss --plugin steam-cdn-unite,verbose=1
+build datetime: 2021-07-19 17:32:17.573290
+builder: runner@fv-az108-287
+interpreter: 3.8.10 (default, Jun  2 2021, 10:49:15)  [GCC 9.4.0]
+jinja2 version: 2.10.1
+pyyaml version: 5.3.1
+markdown2 version: 2.3.10+FGIv5
+BeautifulSoup version: 4.8.2
+webp utils version: 0.6.1
+# ADDITIONAL PATCHES
+95323e63c3623a9ef84175fadaac594c16ab2c85  [DO NOT MERGE] next: templates/rss_feed: fix url prefix
+e6568e1ee7143f43029984511e1609dd682315e3  [DO NOT MERGE] next: remove privacy policy page
+# FGI BUILD INFO END
