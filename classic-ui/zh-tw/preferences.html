@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>獸人控遊戲索引</title>
+	<meta name="keywords" content="furry, game, kemono, 獸人, 獸人控, 獸迷, 毛茸茸, 遊戲, 獸遊">
+	<meta name="description" content="「獸人控遊戲索引」致力於收集和索引 Furry 遊戲">
+	<link rel="stylesheet" href="../styles/pioneer.css?hc=uquery&t=1621044187">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1626715828">
+</head>
+<body>
+	<div id="infobar_rt" class="flexline hide">
+		<a class="iconbtn _cbtn" href="#!"><span class="icon" data-icon="&#61698;" aria-hidden="true"></span></a>
+		<div class="_content"></div>
+	</div>
+	<div id="navbar">
+		<div class="title">獸人控遊戲索引</div>
+		<div id="navlinks">
+		<a href="../zh-tw/index.html" class=""><span class="icon" data-icon="&#61703;" aria-hidden="true"></span><span>主頁</span></a>
+		<a href="../zh-tw/list.html" class=""><span class="icon" data-icon="&#61705;" aria-hidden="true"></span><span>所有遊戲</span></a>
+		<a href="../zh-tw/search.html" class=""><span class="icon" data-icon="&#61709;" aria-hidden="true"></span><span>搜尋</span></a>
+		<a href="../zh-tw/faq.html" class=""><span class="icon" data-icon="&#61707;" aria-hidden="true"></span><span>常見問題</span></a>
+		<a href="https://github.com/FurryGamesIndex/games/blob/master/CONTRIBUTORS.md"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span><span>貢獻者</span></a>
+		<a href="../languages.html" class=""><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>語言</span></a>
+		</div>
+	</div>
+	<div id="app"><div class="default preferences">
+	<h1>首選項</h1>
+
+	<div class="preferences_entry">
+		<h2>敏感內容設定</h2>
+		<div>請前往<a href="sensitive.html">此處</a>。在部分映象站點上，此首選項可能不能修改。</div>
+	</div>
+
+	<div class="preferences_entry">
+		<h2>Steam 商店小部件（Steam Store Widget）</h2>
+		<div>
+			<input type="checkbox" id="steam_widget_switch" class="g_ls_switch" data-lskey="show_steam_widget">
+			<label for="steam_widget_switch">顯示 Steam Store Widget</label>
+		</div>
+		<div class="tip" style="margin-top: 18px;">
+			如果可能的話，將在遊戲頁面上顯示 Steam Store Widget。這可能便於您直接在 FGI 上檢視遊戲在 Steam 的當前售價，但請注意，Steam Store Widget 可能會使用第三方 Cookies 跟蹤你。<a target="_blank" href="https://store.steampowered.com/privacy_agreement/">Valve 隱私政策協議</a>。
+		</div>
+	</div>
+</div>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script>
+<script>
+function gLocalStorageSwitchChange(e) {
+	e.preventDefault();
+	const cb = e.target;
+	localStorage.setItem(cb.dataset.lskey, cb.checked ? "true" : "false");
+}
+
+$$("input.g_ls_switch").forEach(i => {
+	const k = i.dataset.lskey;
+	i.addEventListener('change', gLocalStorageSwitchChange);
+	if (localStorage.getItem(k) == "true") {
+		i.checked = true;
+	}
+})
+</script>
+	</div>
+</body>
+</html>

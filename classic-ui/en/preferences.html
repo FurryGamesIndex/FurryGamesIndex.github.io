@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Furry Games Index</title>
+	<meta name="keywords" content="furry, game, kemono">
+	<meta name="description" content="A project to index furry & kemono games.">
+	<link rel="stylesheet" href="../styles/pioneer.css?hc=uquery&t=1621044187">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1626715828">
+</head>
+<body>
+	<div id="infobar_rt" class="flexline hide">
+		<a class="iconbtn _cbtn" href="#!"><span class="icon" data-icon="&#61698;" aria-hidden="true"></span></a>
+		<div class="_content"></div>
+	</div>
+	<div id="navbar">
+		<div class="title">Furry Games Index</div>
+		<div id="navlinks">
+		<a href="../en/index.html" class=""><span class="icon" data-icon="&#61703;" aria-hidden="true"></span><span>Home</span></a>
+		<a href="../en/list.html" class=""><span class="icon" data-icon="&#61705;" aria-hidden="true"></span><span>All games</span></a>
+		<a href="../en/search.html" class=""><span class="icon" data-icon="&#61709;" aria-hidden="true"></span><span>Search</span></a>
+		<a href="../en/faq.html" class=""><span class="icon" data-icon="&#61707;" aria-hidden="true"></span><span>FAQ</span></a>
+		<a href="https://github.com/FurryGamesIndex/games/blob/master/CONTRIBUTORS.md"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span><span>Contributors</span></a>
+		<a href="../languages.html" class=""><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>Languages</span></a>
+		</div>
+	</div>
+	<div id="app"><div class="default preferences">
+	<h1>Preferences</h1>
+
+	<div class="preferences_entry">
+		<h2>Sensitive content settings</h2>
+		<div>Please navigate to <a href="sensitive.html">here</a>. On some mirror sites, this preference may not be allowed to be modified.</div>
+	</div>
+
+	<div class="preferences_entry">
+		<h2>Steam Store Widget</h2>
+		<div>
+			<input type="checkbox" id="steam_widget_switch" class="g_ls_switch" data-lskey="show_steam_widget">
+			<label for="steam_widget_switch">Show Steam Store Widget</label>
+		</div>
+		<div class="tip" style="margin-top: 18px;">
+			If possible, the Steam Store Widget will be displayed on the game page. This may make it easier for you to see the current price of the game sell on Steam directly on FGI, but please note that the Steam Store Widget may use third-party cookies to track you. <a target="_blank" href="https://store.steampowered.com/privacy_agreement/">Valve Privacy Policy Agreement</a>.
+		</div>
+	</div>
+</div>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script>
+<script>
+function gLocalStorageSwitchChange(e) {
+	e.preventDefault();
+	const cb = e.target;
+	localStorage.setItem(cb.dataset.lskey, cb.checked ? "true" : "false");
+}
+
+$$("input.g_ls_switch").forEach(i => {
+	const k = i.dataset.lskey;
+	i.addEventListener('change', gLocalStorageSwitchChange);
+	if (localStorage.getItem(k) == "true") {
+		i.checked = true;
+	}
+})
+</script>
+	</div>
+</body>
+</html>

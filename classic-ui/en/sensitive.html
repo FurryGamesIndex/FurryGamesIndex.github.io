@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Furry Games Index</title>
+	<meta name="keywords" content="furry, game, kemono">
+	<meta name="description" content="A project to index furry & kemono games.">
+	<link rel="stylesheet" href="../styles/pioneer.css?hc=uquery&t=1621044187">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1626715828">
+</head>
+<body>
+	<div id="infobar_rt" class="flexline hide">
+		<a class="iconbtn _cbtn" href="#!"><span class="icon" data-icon="&#61698;" aria-hidden="true"></span></a>
+		<div class="_content"></div>
+	</div>
+	<div id="navbar">
+		<div class="title">Furry Games Index</div>
+		<div id="navlinks">
+		<a href="../en/index.html" class=""><span class="icon" data-icon="&#61703;" aria-hidden="true"></span><span>Home</span></a>
+		<a href="../en/list.html" class=""><span class="icon" data-icon="&#61705;" aria-hidden="true"></span><span>All games</span></a>
+		<a href="../en/search.html" class=""><span class="icon" data-icon="&#61709;" aria-hidden="true"></span><span>Search</span></a>
+		<a href="../en/faq.html" class=""><span class="icon" data-icon="&#61707;" aria-hidden="true"></span><span>FAQ</span></a>
+		<a href="https://github.com/FurryGamesIndex/games/blob/master/CONTRIBUTORS.md"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span><span>Contributors</span></a>
+		<a href="../languages.html" class=""><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>Languages</span></a>
+		</div>
+	</div>
+	<div id="app"><div class="default">
+	<input type="checkbox" id="sensitive_switch">
+	<label for="sensitive_switch">Show sensitive contents</label>
+	<div style="margin-top: 18px;">
+		This will enable the display of sensitive content on all FGI pages.<br>
+You must reach the adult standard under local laws before you can open the above options.<br>
+You must use a modern browser and enable JavaScript.<br>
+After modifying this setting, you need to refresh the page to take effect.
+
+	</div>
+</div>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script>
+<script>
+$("#sensitive_switch").addEventListener('change', async e => {
+	e.preventDefault();
+	localStorage.setItem("show_sensitive", e.target.checked ? "true" : "false");
+});
+
+if (localStorage.getItem("show_sensitive") == "true") {
+	$("#sensitive_switch").checked = true
+}
+</script>
+	</div>
+</body>
+</html>

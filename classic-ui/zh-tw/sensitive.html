@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>獸人控遊戲索引</title>
+	<meta name="keywords" content="furry, game, kemono, 獸人, 獸人控, 獸迷, 毛茸茸, 遊戲, 獸遊">
+	<meta name="description" content="「獸人控遊戲索引」致力於收集和索引 Furry 遊戲">
+	<link rel="stylesheet" href="../styles/pioneer.css?hc=uquery&t=1621044187">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1626715828">
+</head>
+<body>
+	<div id="infobar_rt" class="flexline hide">
+		<a class="iconbtn _cbtn" href="#!"><span class="icon" data-icon="&#61698;" aria-hidden="true"></span></a>
+		<div class="_content"></div>
+	</div>
+	<div id="navbar">
+		<div class="title">獸人控遊戲索引</div>
+		<div id="navlinks">
+		<a href="../zh-tw/index.html" class=""><span class="icon" data-icon="&#61703;" aria-hidden="true"></span><span>主頁</span></a>
+		<a href="../zh-tw/list.html" class=""><span class="icon" data-icon="&#61705;" aria-hidden="true"></span><span>所有遊戲</span></a>
+		<a href="../zh-tw/search.html" class=""><span class="icon" data-icon="&#61709;" aria-hidden="true"></span><span>搜尋</span></a>
+		<a href="../zh-tw/faq.html" class=""><span class="icon" data-icon="&#61707;" aria-hidden="true"></span><span>常見問題</span></a>
+		<a href="https://github.com/FurryGamesIndex/games/blob/master/CONTRIBUTORS.md"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span><span>貢獻者</span></a>
+		<a href="../languages.html" class=""><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>語言</span></a>
+		</div>
+	</div>
+	<div id="app"><div class="default">
+	<input type="checkbox" id="sensitive_switch">
+	<label for="sensitive_switch">Show sensitive contents</label>
+	<div style="margin-top: 18px;">
+		這將在所有 FGI 頁面上啟用顯示敏感內容。<br>
+你必須在當地法律下達到成年標準後才可以開啟上述選項。<br>
+你必須使用現代瀏覽器並啟用 JavaScript。<br>
+修改該設定後需要重新整理頁面才能生效。
+
+	</div>
+</div>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script>
+<script>
+$("#sensitive_switch").addEventListener('change', async e => {
+	e.preventDefault();
+	localStorage.setItem("show_sensitive", e.target.checked ? "true" : "false");
+});
+
+if (localStorage.getItem("show_sensitive") == "true") {
+	$("#sensitive_switch").checked = true
+}
+</script>
+	</div>
+</body>
+</html>
