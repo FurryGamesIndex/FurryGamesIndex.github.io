@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>獸人控遊戲索引</title>
+	<meta name="keywords" content="furry, game, kemono, 獸人, 獸人控, 獸迷, 毛茸茸, 遊戲, 獸遊">
+	<meta name="description" content="「獸人控遊戲索引」致力於收集和索引 Furry 遊戲">
+	<meta name="robots" content="noindex">
+	<link rel="stylesheet" href="../styles/peafowl.css?hc=uquery&t=1653658926">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1680364140">
+</head>
+<body>
+<header>
+<nav>
+	<div class="title">獸人控遊戲索引</div>
+	<ul>
+		<li class=""><a class="iconline" href="../zh-tw/index.html"><span class="icon" data-icon="&#61703;" aria-hidden="true"></span>主頁</a></li>
+		<li class=""><a class="iconline" href="../zh-tw/list.html"><span class="icon" data-icon="&#61705;" aria-hidden="true"></span>所有遊戲</a></li>
+		<li class="activated"><a class="iconline" href="../zh-tw/search.html"><span class="icon" data-icon="&#61709;" aria-hidden="true"></span>搜尋</a></li>
+		<li class=""><a class="iconline" href="../zh-tw/faq.html"><span class="icon" data-icon="&#61707;" aria-hidden="true"></span>常見問題</a></li>
+		<li><a class="iconline" href="https://github.com/FurryGamesIndex/games/wiki/Contributors"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span>貢獻者</a></li>
+		<li class=""><a class="iconline" href="../languages.html"><span class="icon" data-icon="&#61704;" aria-hidden="true"></span>語言</a></li>
+	</ul>
+</nav>
+</header>
+<noscript>
+	<aside class="box warning">
+		<span class="icon" data-icon="&#61713;" aria-hidden="true"></span>
+		<p>此頁面上的部分或全部功能需要 JavaScript 才能正常工作。</p>
+	</aside>
+</noscript><main class="main_search">
+	<select id="search_mode">
+		<option value="title">搜尋標題</option>
+		<!--<option value="tindes">搜尋標題和描述</option>-->
+		<option value="tagx">搜尋標籤</option>
+		<option style="display: none;" value="tag">STAG (LEGACY)</option>
+	</select>
+	<div id="search_wrap">
+		<input id="search_value" />
+		<button id="search_do">搜尋</button>
+	</div>
+	<a href="search_help.html">搜尋幫助</a>
+	<p id="search_info"></p>
+
+	<article class="item hide">
+		<section>
+			<h2 class="game_name"><a class="name_a" href="#"></a></h2>
+			<div class="description"></div>
+		</section>
+		<picture class="_thumbnail"></picture>
+	</article>
+	<div class="item_container">
+	</div>
+</main>
+<footer class="small">
+<section>
+	<p>版權所有 The FurryGamesIndex project，本站點的資料按照 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">創作共用署名-非商業性使用-相同方式共享(CC-BY-NC-SA) 4.0</a> 許可。部分資料（如遊戲截圖）版權歸原始權利人所有。我們僅在<a href="https://en.wikipedia.org/wiki/Fair_use">合理使用</a>的前提下發布它們。</p>
+	<p><a href="../privacy-policy.html">隱私權政策</a></p>
+	<p><a href="../credits.html">由開源軟體提供動力</a></p>
+</section>
+<section>
+	<p><a class="iconline" href="../languages.html"><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>語言</span></a></p>
+	<p><a class="iconline" href="../zh-tw/preferences.html"><span class="icon" data-icon="&#61710;" aria-hidden="true"></span><span>站點首選項</span></a></p>
+	<p>
+		發現缺少了東西或錯誤？希望新增遊戲？或者想幫助改進 FurryGamesIndex？立即<a href="https://github.com/FurryGamesIndex/games/tree/master/.github/CONTRIBUTING.zh-tw.md">參與其中</a>！
+	</p>
+	<address>
+		透過以下方式聯絡“獸人控遊戲索引”專案<br>
+		<a href="https://github.com/FurryGamesIndex/games" title="Github 專案">
+			<span class="icon" data-icon="&#61728;" aria-hidden="true"></span>
+		</a>
+		<a href="mailto:list@furrygames.top" title="list@furrygames.top">
+			<span class="icon" data-icon="&#61700;" aria-hidden="true"></span>
+		</a>
+		<a href="https://t.me/FurryGamesIndex" title="Telegram 頻道和群組">
+			<span class="icon" data-icon="&#61738;" aria-hidden="true"></span>
+		</a>
+	</address>
+	<p>Your email will be displayed on our <a href="https://groups.google.com/g/furrygamesindex">mailing list</a> for all users.
+</p>
+</section>
+<section>
+	<p><a class="iconline" href="../zh-tw/feed.xml"><span class="icon" data-icon="&#61708;" aria-hidden="true"></span><span>RSS Feed</span></a></p>
+	<p>RSS Feed 將以時間順序推送最近新增到 FGI 的 50 個遊戲條目。</p>
+</section>
+</footer>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script><script src="../scripts/searchexpr.js?hc=uquery&t=1643875897"></script>
+<script>
+const items = $('.item_container');
+const template = $('.item');
+
+const query = window.location.search.substring(1);
+const mode = query.substring(0, query.indexOf('?'));
+let value = decodeURIComponent(query.substring(query.indexOf('?') + 1));
+
+let getL10n = (game, property) => {
+	return (game.tr.hasOwnProperty("zh-tw") &&
+		game.tr["zh-tw"].hasOwnProperty(property)) ?
+		game.tr["zh-tw"][property] : game[property];
+}
+
+let add = (id, game) => {
+	const item = template.cloneNode(true);
+	item.classList.remove("hide");
+
+	const _prefix = "../"
+	const thumb = item.querySelector("._thumbnail");
+
+	make_picture(game.thumbnail, _prefix, thumb);
+	thumb.srcNode.classList.add("thumbnail")
+
+	const link = item.querySelector(".name_a");
+	link.textContent = getL10n(game, "name");
+	link.href = "games/" + id + ".html";
+
+	let desc = getL10n(game, "brief");
+	item.querySelector(".description").innerHTML = desc;
+
+	items.appendChild(item);
+	items.appendChild(document.createElement("hr"));
+}
+
+const searchTagWithoutNamespace = (searchdb, tag) => {
+	let res = new Set(),
+		ns = searchdb.tagns[tag];
+
+	if (ns == null)
+		ns = [ "author" ];
+
+	ns.forEach(i => {
+		console.log(i)
+		const tmp = searchdb.rtag[i + ":" + tag] || [];
+		res = new Set([...res, ...tmp]);
+	});
+
+	return [...res];
+}
+
+let onload = async () => {
+	$('#search_mode').value = mode;
+	if ($('#search_mode').selectedIndex < 0)
+		$('#search_mode').selectedIndex = 0;
+	$('#search_value').value = value;
+
+	try {
+		if (mode !== "")
+			$("#search_info").textContent = "正在搜尋...";
+
+		let searchdb;
+		if (typeof(_searchdb) === 'undefined') {
+			searchdb = await (await fetch("../scripts/searchdb.json?hc=uquery&t=1680364212")).json();
+		} else {
+			searchdb = _searchdb;
+		}
+
+		let num = 0;
+
+		switch (mode) {
+		case "tag":
+			if (searchdb.rtag.hasOwnProperty(value)) {
+				const res = searchdb.rtag[value];
+				res.forEach(i => add(i, searchdb.data[i]));
+			} else {
+				items.textContent = "沒有找到專案";
+			}
+			break;
+		case "tagx":
+			searchexpr(value, ((tag, args) => {
+				console.log("find: " + tag);
+				switch (tag) {
+				case '$all':
+					return Object.keys(searchdb.data);
+					break;
+				case '$sortcmpr':
+					switch (args.sortedBy) {
+					case "lastmod":
+						return searchdb.data[args.secondElm].mtime - searchdb.data[args.firstElm].mtime;
+						break;
+					case "lastpost": {
+							const fbt = searchdb.data[args.firstElm].btime,
+								sbt = searchdb.data[args.secondElm].btime;
+							if (!fbt || !sbt) {
+								throw "lastpost order need FGI built with --btime-file option.";
+							}
+							return sbt - fbt;
+						}
+						break;
+					default:
+						throw "unknown sortedBy arg: " + args.sortedBy;
+						break;
+					}
+				}
+
+				let ns = tag.substring(0, tag.indexOf(":"))
+				let v = tag.substring(tag.indexOf(":") + 1)
+
+				if (searchdb.tagalias.hasOwnProperty(v)) {
+					v = searchdb.tagalias[v];
+				}
+
+				switch (ns) {
+				case 'malex':
+				case 'femalex':
+				case 'male':
+				case 'female':
+				case '':
+					return searchTagWithoutNamespace(searchdb, v);
+					break;
+				}
+
+				tag = ns + ":" + v;
+
+				return searchdb.rtag[tag] || [];
+			})).forEach(i => {
+				num++;
+				add(i, searchdb.data[i])
+			});
+
+			$("#search_info").textContent = "共找到 {0} 項".format(num);
+			break;
+		case "title":
+		case "tindes":
+			value = value.toLowerCase();
+			for (const [id, game] of Object.entries(searchdb.data)) {
+				console.log(id);
+				if (game.name.toLowerCase().indexOf(value) >= 0) {
+					num++;
+					add(id, game);
+					continue;
+				}
+
+				if (mode === "tindes" && game.description.toLowerCase().indexOf(value) >= 0) {
+					num++;
+					add(id, game);
+					continue;
+				}
+
+				for (const [lang, l10n] of Object.entries(game.tr)) {
+					console.log(lang);
+					if (l10n.hasOwnProperty('name') && l10n.name.toLowerCase().indexOf(value) >= 0) {
+						num++;
+						add(id, game);
+						break;
+					}
+
+					if (mode === "tindes" &&
+						l10n.hasOwnProperty("description") &&
+						l10n.description.toLowerCase().indexOf(value) >= 0) {
+						num++;
+						add(id, game);
+						break;
+					}
+				}
+			}
+
+			$("#search_info").textContent = "共找到 {0} 項".format(num);
+			break;
+		default:
+			break;
+		}
+	} catch (e) {
+		$("#search_info").textContent = "Sorry, an error occured.\n" + e;
+		console.error(e);
+		alert("發生錯誤");
+	}
+}
+
+let do_search = () => {
+	window.location.href = "search.html?" + $('#search_mode').value + "?" + $('#search_value').value
+}
+
+$('#search_do').addEventListener('click', e => {
+	do_search();
+});
+
+$('#search_value').addEventListener('keyup', e => {
+	if (e.keyCode == 13)
+		do_search();
+});
+
+onload();
+</script>
+</body>
+</html>
