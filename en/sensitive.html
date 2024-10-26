@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Furry Games Index</title>
+	<meta name="keywords" content="furry, game, kemono">
+	<meta name="description" content="A project to index furry & kemono games.">
+	<link rel="stylesheet" href="../styles/peafowl.css?hc=uquery&t=1653658926">
+	<link rel="stylesheet" href="../icons/icon.css?hc=uquery&t=1729947565">
+</head>
+<body>
+<header>
+<nav>
+	<div class="title">Furry Games Index</div>
+	<ul>
+		<li class=""><a class="iconline" href="../en/index.html"><span class="icon" data-icon="&#61703;" aria-hidden="true"></span>Home</a></li>
+		<li class=""><a class="iconline" href="../en/list.html"><span class="icon" data-icon="&#61705;" aria-hidden="true"></span>All games</a></li>
+		<li class=""><a class="iconline" href="../en/search.html"><span class="icon" data-icon="&#61709;" aria-hidden="true"></span>Search</a></li>
+		<li class=""><a class="iconline" href="../en/faq.html"><span class="icon" data-icon="&#61707;" aria-hidden="true"></span>FAQ</a></li>
+		<li><a class="iconline" href="https://github.com/FurryGamesIndex/games/wiki/Contributors"><span class="icon" data-icon="&#61706;" aria-hidden="true"></span>Contributors</a></li>
+		<li class=""><a class="iconline" href="../languages.html"><span class="icon" data-icon="&#61704;" aria-hidden="true"></span>Languages</a></li>
+	</ul>
+</nav>
+</header>
+<noscript>
+	<aside class="box warning">
+		<span class="icon" data-icon="&#61713;" aria-hidden="true"></span>
+		<p>Some or all of the features on this page require JavaScript to work properly.</p>
+	</aside>
+</noscript><main class="main_generic">
+	<p>
+		<input type="checkbox" id="sensitive_switch">
+		<label for="sensitive_switch">Show sensitive contents</label>
+	</p>
+	<p>
+		This will enable the display of sensitive content on all FGI pages.<br>
+You must reach the adult standard under local laws before you can open the above options.<br>
+You must use a modern browser and enable JavaScript.<br>
+After modifying this setting, you need to refresh the page to take effect.
+
+	</p>
+</main>
+<hr />
+<footer class="small">
+<section>
+	<p>Copyright The FurryGamesIndex project, The data on this site is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>. The copyright of some data (such as game screenshots) belongs to the original owner. We only release them under the premise of <a href="https://en.wikipedia.org/wiki/Fair_use">fair use</a>.</p>
+	<p><a href="../privacy-policy.html">Privacy Policy</a></p>
+	<p><a href="../credits.html">Powered by Open-source softwares</a></p>
+</section>
+<section>
+	<p><a class="iconline" href="../languages.html"><span class="icon" data-icon="&#61704;" aria-hidden="true"></span><span>Languages</span></a></p>
+	<p><a class="iconline" href="../en/preferences.html"><span class="icon" data-icon="&#61710;" aria-hidden="true"></span><span>Site Preferences</span></a></p>
+	<p>
+		Found something missing or wrong? want to add new games? Or want to improve FurryGamesIndex? <a href="https://github.com/FurryGamesIndex/games/tree/master/.github/CONTRIBUTING.md">Get Involved</a> now!
+	</p>
+	<address>
+		Contact FurryGamesIndex project by<br>
+		<a href="https://github.com/FurryGamesIndex/games" title="Github Project">
+			<span class="icon" data-icon="&#61728;" aria-hidden="true"></span>
+		</a>
+		<a id="email-link" href="javascript:void(0)" title="Contact us">
+			<span class="icon" data-icon="&#61700;" aria-hidden="true"></span>
+		</a>
+		<a href="https://t.me/FurryGamesIndex" title="Telegram Channel/Groups">
+			<span class="icon" data-icon="&#61738;" aria-hidden="true"></span>
+		</a>
+	</address>
+	<p>Your email will be displayed on our <a href="https://groups.google.com/g/furrygamesindex">mailing list</a> for all users.
+</p>
+</section>
+<section>
+	<p><a class="iconline" href="../en/feed.xml"><span class="icon" data-icon="&#61708;" aria-hidden="true"></span><span>RSS Feed</span></a></p>
+	<p>RSS Feed will push the 50 most recent game entries added to FGI in chronological order.</p>
+</section>
+</footer>
+<script src="../scripts/base.js?hc=uquery&t=1621062972"></script>
+<script>
+  const user = "list";
+  const domain = "furrygames.top";
+  document.getElementById("email-link").href = `mailto:${user}@${domain}`;
+  document.getElementById("email-link").title = `${user}@${domain}`;
+</script><script>
+$("#sensitive_switch").addEventListener('change', async e => {
+	e.preventDefault();
+	localStorage.setItem("show_sensitive", e.target.checked ? "true" : "false");
+});
+
+if (localStorage.getItem("show_sensitive") == "true") {
+	$("#sensitive_switch").checked = true
+}
+</script>
+</body>
+</html>

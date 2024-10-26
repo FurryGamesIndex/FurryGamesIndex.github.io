@@ -1,0 +1,15 @@
+# FGI BUILD INFO START
+base revision: bf72b6b61142018359b4bfea893f65dbca022c99
+options: --images-candidate-webp --with-rss --mtime-has-fixed --btime-file .cache/btime.json --plugin steam-cdn-unite,verbose=1 --plugin zhconv,critical
+build datetime: 2024-10-26 13:00:23.976839
+builder: runner@fv-az529-595
+interpreter: 3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]
+jinja2 version: 3.0.3
+pyyaml version: 5.4.1
+markdown2 version: 2.3.10+FGIv5
+BeautifulSoup version: 4.10.0
+webp utils version: 1.2.2
+# ADDITIONAL PATCHES
+# PLUGINS INFOMATION
+zhconv: OpenCC version: 1.1.9
+# FGI BUILD INFO END
