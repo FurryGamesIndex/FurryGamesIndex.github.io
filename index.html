@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Furry Games Index</title>
+	<meta name="description" content="A project to index furry & kemono games.">
+	<meta name="google-site-verification" content="vh_OZXqVYTzuQALifZ35sLKMyOSyKNda39Bz5zHZijE" />
+</head>
+<body>
+	<noscript>
+		If you have disabled JavaScript, please click <a href="en/">this link</a> to enter this site.<br>
+		如果你禁用了 JavaScript，请点击<a href="zh-cn/">此链接</a>进入本站。<br>
+		如果你禁用了 JavaScript，請點選<a href="zh-tw/">此連結</a>進入本站。<br>
+	</noscript>
+	<script src="scripts/base.js"></script>
+	<script>
+		try {
+			const suffix = (window.location.host === "") ? "index.html" : "";
+			const lmap = {
+				'en': 'en',
+				'en-us': 'en',
+				'zh-cn': 'zh-cn',
+				'zh-tw': 'zh-tw',
+				'zh-hk': 'zh-tw',
+				'zh-sg': 'zh-cn',
+				'zh': 'zh-cn'
+			};
+			const matched = navigator.languages.some(i => {
+				i = i.toLowerCase();
+				if (lmap.hasOwnProperty(i)) {
+					window.location.replace(lmap[i] + '/' + suffix);
+					return true;
+				}
+				return false;
+			});
+			if (!matched)
+				window.location.replace('en/' + suffix);
+		} catch (e) {
+			window.location.replace('en/');
+		}
+	</script>
+</body>
+</html>
